@@ -1,0 +1,9 @@
+{
+  "short_name": "Appwrite Forum",
+  "name": "A simple appwrite forum",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
