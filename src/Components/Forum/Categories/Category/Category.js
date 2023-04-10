@@ -1,0 +1,29 @@
+import React from 'react';
+import './Category.css';
+import {Card, CardActionArea, CardContent, Typography} from "@mui/material";
+import styles from './Category.module.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
+
+export function Category({ id, name, description, imageUrl }) {
+const navigate = useNavigate();
+  return (
+   <CardActionArea onClick={() => {
+                // Navigate to the 'posts' route with the 'id' property of the category ID.
+                navigate(`/${id}`);
+            }} >
+    <div className="category-container">
+      <img className="category-image" src={imageUrl} alt={name} />
+      <div className="category-text">
+        <h3 className="category-title">{name}</h3>
+        <p className="category-description">{description}</p>
+      </div>
+    </div>
+    </CardActionArea>
+  );
+}
+

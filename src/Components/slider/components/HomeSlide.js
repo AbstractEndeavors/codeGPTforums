@@ -1,0 +1,55 @@
+import React from 'react';
+import { ReactComponent as Particals } from './../assets/images/particals.svg';
+import { ReactComponent as BgPlanet } from './../assets/images/bgplanet.svg';
+import { ReactComponent as PolyWorld } from './../assets/images/polyworld.svg';
+import { ReactComponent as CliveCooper } from './../assets/images/clivecooper.svg';
+
+const HomeSlide = ({ id }) => {
+  return (
+    <div className={`home-slide ${id === 'bg-particles' ? 'active' : ''}`} id={id}>
+      <div id="content-header">
+        <div id="home-slides-container">
+          <div className="home-slide active" id="bg-particles">
+            <div className="slide-indicator" data-this-slide="1" data-total-slides="4">:</div>
+            <div className="slide-indicator" data-this-slide="" data-total-slides="">:</div>
+            <h2 className="centered">Need help connecting the dots? <strong>Post Bounty</strong> and get linked up.</h2>
+            <a className="home-slide-cta sign-in-user-cta" href="webdeveloper.com/">Ask a Question</a>
+            <a className="banner-bg-credit" href="http://codepen.io/VincentGarreau/pen/bGxvQd" target="_blank">
+              <strong>Particles</strong> by Vincent Garreau <Particals />
+            </a>
+            <canvas className="particles-js-canvas-el" width="1016" height="379" style={{ width: '100%', height: '100%' }}></canvas>
+          </div>
+          <div className="home-slide" id="bg-earn-sats">
+            <div className="slide-indicator" data-this-slide="2" data-total-slides="4">:</div>
+            <h2 className="centered">Earn <strong>SATS</strong>—the smallest unit of <span className="together">Bitcoin—by</span> unlocking badges!</h2>
+            <a className="home-slide-cta" href="http://webdeveloper.com/sats">View Badges</a>
+            <a className="banner-bg-credit watch-wd-promo-video" href="http://www.youtube.com/watch?v=ZDduBN6kQCc" target="_blank">
+              <strong>Watch</strong> Video <BgPlanet />
+            </a>
+          </div>
+<div className="home-slide" id="bg-planet">
+  <div className="slide-indicator" data-this-slide="3" data-total-slides="4">:</div>
+  <h2 className="centered">Interested in <span className="strike">flying</span> writing?<br />Become a <span className="strike">pilot</span> <strong>WD Author!</strong></h2>
+  <a className="home-slide-cta" href="http://webdeveloper.com/sign-up">Sign Up</a>
+  <a className="banner-bg-credit" href="http://codepen.io/Zultan/pen/mwGZBP" target="_blank">
+    <strong>Tiny Poly World</strong> by Zoltan <PolyWorld />
+  </a>
+<canvas width="1016" height="379" style={{ width: '1016px', height: '379px' }}></canvas>
+          </div>
+          <div className="home-slide" id="bg-matrix">
+            <div className="slide-indicator" data-this-slide="4" data-total-slides="4">:</div>
+            <h2 className="centered">Join the <strong>BETA</strong> and see how <span className="span-together">deep the rabbit</span> hole goes.</h2>
+            <a className="home-slide-cta" href="http://webdeveloper.com/sign-up">Sign Up</a>
+            <a className="banner-bg-credit" href="http://codepen.io/yaclive/pen/EayLYO" target="_blank">
+              <strong>Matrix Rain</strong> by Clive Cooper <CliveCooper />
+            </a>
+            <div id="train"></div>
+            <canvas id="the-matrix" width="1016" height="379"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default HomeSlide;

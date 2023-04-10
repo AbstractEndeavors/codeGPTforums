@@ -1,0 +1,8 @@
+import axios from "axios";
+
+export const fetchData = async (input: any,API_KEY: string) => {
+  alert(input)
+  const response = await axios.post("https://api.openai.com/v1/completions",input,{headers: {"Content-Type": "application/json","Authorization": `Bearer ${API_KEY}`},});
+  alert(response)
+  return response.data.choices[0].text;
+};

@@ -1,0 +1,110 @@
+/** Base Styles **/
+html{
+    background-color: #333;
+    color: #efefef;
+}
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+button,
+p,
+div,
+span,
+section{
+    color: #efefef;
+    font-family: "Source Sans Pro";
+}
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+textarea,
+input[type="text"]{
+    background: #444;
+    border: 1px #666 solid;
+    color: #cdcdcd;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    line-height: 1.25;
+    font-size: 1.125rem;
+}
+textarea{
+    height: 4rem;
+    width: 100%;
+}
+input[type="text"]{
+    display: inline-block;
+    font-size: 1rem;
+}
+button{
+    background-color: #666;
+    border: #333;
+    color: #cdcdcd;
+    cursor: pointer;
+    margin-left: 1rem;
+    width: 10rem;
+}
+
+/** Conversation List **/
+.conversation-list{
+    border: 1px #666 solid;
+    border-radius: 10px;
+    height: 480px;
+    overflow-y: scroll;
+    padding: 0 1rem;
+    position: relative;
+    width: 100%;
+}
+.conversation-list .message{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/** Scrollbar Styles **/
+.conversation-list::-webkit-scrollbar {
+    width: 1em;
+}
+
+.conversation-list::-webkit-scrollbar-track {
+    background-color: #f9f9f9;
+}
+
+.conversation-list::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    border-radius: 10rem;
+    outline: 1px solid slategrey;
+}
+
+/** Misc Styles **/
+.inputs{
+    position: relative;
+    top: -0.5rem;
+    z-index: 9;
+}
+
+/** Responsive Styles **/
+@media (max-width: 1200px){
+    .grid{
+        display: block;
+    }
+    textarea,
+    input[type="text"],
+    button{
+        width: 98%;
+    }
+    button{
+        margin: 0;
+        padding: 0.5rem 1rem;
+        width: 100%;
+    }
+}

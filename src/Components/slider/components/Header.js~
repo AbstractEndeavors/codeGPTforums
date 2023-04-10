@@ -1,0 +1,45 @@
+import React from 'react';
+import { Helmet } from 'react-helmet';
+
+const Header = () => {
+  return (
+    <Helmet>
+       
+    <link media="all" href="https://webdeveloper.com/wp-content/cache/autoptimize/css/autoptimize_4fb30bbe8d2032e72703c853a7601bea.css" rel="stylesheet">
+<script async="" src="https://static.hotjar.com/c/hotjar-2850239.js?sv=6">
+</script>
+<meta name="robots" content="max-image-preview:large"> <script defer="" src="https://webdeveloper.com/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js">
+</script> 
+
+<body data-home="https://webdeveloper.com" data-current-user="0" data-templates="home.php" class="home page-template page-template-templates page-template-home page-template-templateshome-php page page-id-5962 sun list-view loaded scrolling-up">
+    <header>
+</header>
+<div id="content-header">
+<div id="home-slides-container">
+<div class="home-slide active" id="bg-particles">
+<div class="slide-indicator" data-this-slide="1" data-total-slides="4">:</div>
+<div class="slide-indicator" data-this-slide="" data-total-slides="">:</div>
+<h2 class="centered">Need help connecting the dots? <strong>Post Bounty</strong> and get linked up.</h2>
+<a class="home-slide-cta sign-in-user-cta" href="https://webdeveloper.com/#">Ask a Question</a>
+<a class="banner-bg-credit" href="https://codepen.io/VincentGarreau/pen/bGxvQd" target="_blank">
+      <link
+        media="all"
+        href="https://webdeveloper.com/wp-content/cache/autoptimize/css/autoptimize_4fb30bbe8d2032e72703c853a7601bea.css"
+        rel="stylesheet"
+      />
+      <script
+        async=""
+        src="https://static.hotjar.com/c/hotjar-2850239.js?sv=6"
+      ></script>
+      <meta name="robots" content="max-image-preview:large" />
+      <script
+        defer=""
+        src="https://webdeveloper.com/wp-includes/js/jquery/jquery.min.js"
+        id="jquery-core-js"
+      ></script>
+    </Helmet>
+  );
+};
+
+export default Header;
+

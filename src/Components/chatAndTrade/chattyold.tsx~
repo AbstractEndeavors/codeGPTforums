@@ -1,0 +1,147 @@
+import React, { useState } from "react";
+import { fetchData } from "./Data";
+import ConversationList from './components/ConversationList';
+
+import ChatBubble from "./ChatBubble";
+function concateStrings(ls:any){
+    var ls = mkLs(ls);
+    var y = ls[0];
+    for(var i=1;i<len(ls);i++){
+        y = concateStr(y,String(ls[i]))
+    }
+    return(y);
+}
+function appLs(ls:any,y:any){
+    if(isArray(ls)){
+        ls.push(y);
+    }
+    return ls;
+} 
+function concateStr(x:any,y:any){
+    return String(x)+String(y);
+}
+function len(x:any){
+    return x.length
+}
+function mkJson(x:any){
+    return(JSON.parse(x));
+}
+function ifJson(x:any){
+        try {
+            var testIfJson = JSON.parse(x);
+            if (typeof testIfJson == "object"){
+                return true;
+            }
+        }
+        catch {
+            return false;
+        }
+}
+function getKeys(x:any){
+    if(ifJson(x)){
+          return Object.keys(x);
+    }return [];
+}
+function stringIt(x:any){
+    return(JSON.stringify(x));
+}
+function ifInJs(x:any,y:any){
+    return getKeys(x).includes(y);
+}
+function addJson(x: any,y:any,z:any){
+    if(ifJson(x)){
+        x[y] = z;
+    }
+    return x;
+}
+function mkLs(ls:any){
+    if (isArray(ls)==false){
+       ls = [ls]; 
+    }
+    return(ls);
+}
+function isArray(obj:any)
+{
+    return obj !== undefined && obj !== null && obj.constructor == Array;
+}
+
+function isBoolean(obj:any)
+{
+    return obj !== undefined && obj !== null && obj.constructor == Boolean;
+}
+
+function isFunction(obj:any)
+{
+    return obj !== undefined && obj !== null && obj.constructor == Function;
+}
+
+function isNumber(obj:any)
+{
+    return obj !== undefined && obj !== null && obj.constructor == Number;
+}
+
+function isString(obj:any)
+{
+    return obj !== undefined && obj !== null && obj.constructor == String;
+}
+
+function isInstanced(obj:any)
+{
+    if(obj === undefined || obj === null) { return false; }
+    if(isArray(obj)) { return false; }
+    if(isBoolean(obj)) { return false; }
+    if(isFunction(obj)) { return false; }
+    if(isNumber(obj)) { return false; }
+    if(ifJson(obj)) { return false; }
+    if(isString(obj)) { return false; }
+    return true;
+}
+
+function ChattyApp() {
+  const apiKey = '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';
+  const [input, setInput] = useState("");
+  const jsonQuery = {"model": "text-davinci-003", "n": 1, "max_tokens": 2000, "temperature": 0.7, "best_of": 1, "top_p": 0.0, "frequency_penalty": 0.0, "presence_penalty": 0.0, "echo": true, "prompt": "whats up?"}
+  const [completedSentence, setCompletedSentence] = useState("");
+  const [query, setQuery] = useState("");
+  const [renMsg, setRender] = useState("");
+  async function handleClick(inIt:string) {
+    alert(inIt)
+    let data = JSON.stringify({"model": "text-davinci-003", "n": 1, "max_tokens": 2000, "temperature": 0.7, "best_of": 1, "top_p": 0.0, "frequency_penalty": 0.0, "presence_penalty": 0.0, "echo": true, "prompt": '#chat:\n\t '+String(inIt)+'\n'});
+    try {
+      const completedSentence = await fetchData(data,apiKey);
+      console.error({lastQuery:inIt,lastResponse:completedSentence})
+      setQuery(inIt);
+      setCompletedSentence(completedSentence);
+      alert(completedSentence)
+    } catch (error) {
+      console.error(error);
+    }
+    
+  }
+
+
+  const [text, setText] = useState('');
+  const [username, setUsername] = useState('');
+  const [messages, setMessages] = useState([]);
+  return (
+  <div className="container">
+        <input type="text" placeholder="Name" value={username} onChange={(e) => setUsername(e.target.value)} />
+            <ConversationList />
+                <div className="inputs">
+            
+                    <textarea value={input} onChange={(event) => setInput(event.target.value)} placeholder="Enter message here..." />
+                </div>
+                <br />
+                <br />
+                <button className="button" onClick={() => handleNewMessage(handleClick(input))}>send query</button>
+                
+           </div>
+       
+           
+           )
+           
+  };
+
+
+
+export default ChattyApp;

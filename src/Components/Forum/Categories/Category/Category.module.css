@@ -1,0 +1,7 @@
+/* src/components/Category/Category.module.css */
+.categoryImage {
+  max-width: 10%;
+  height: 'auto';
+  color:black;
+}
+

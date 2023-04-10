@@ -1,0 +1,31 @@
+.category-container {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+}
+
+.category-image {
+  max-width: 100px; /* Adjust the image size as needed */
+  height: auto;
+  margin-right: 20px;
+}
+
+.category-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.category-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0;
+}
+
+.category-description {
+  font-size: 1rem;
+  color: #333;
+}
