@@ -6,14 +6,21 @@ import ChattyApp from '../../../chatAndTrade/chatty.jsx';
 
 export function NewPostForm({ onSubmit }) {
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
   const [query, setQuery] = useState("");
+  const [answer, setAnswer] = useState("");
+  const [description, setDescription] = useState("");
+  const [type, setType] = useState("");
+  const [codeLanguage, setCodeLanguage] = useState("");
+  const [date, setDate] = useState("");
   const { categoryId } = useParams();
 
 const handleChattyResponse = (response) => {
   setTitle(response.title);
-  setQuery(response.query); // Update this line to set the correct state value
-  setDescription(response.description);
+  setQuery(response.query);
+  setAnswer(response.answer);
+  setType(response.type);
+  setCodeLanguage(response.codeLanguage);
+  setDate(response.date);
 };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,7 +28,10 @@ const handleChattyResponse = (response) => {
     const newPost = {
       title,
       query,
-      description,
+      description: description || answer, // Use description if available, otherwise use answer
+      type,
+      codeLanguage,
+      date,
       categoryId,
       author: "YourUsername", // Replace with the actual username
       $id: Date.now().toString(), // Generate a unique ID based on the current timestamp
